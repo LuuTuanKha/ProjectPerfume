@@ -14,7 +14,7 @@
 	<meta name="keywords" content="divisima, eCommerce, creative, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Favicon -->
-	<link href="../assets/img/favicon.ico" rel="shortcut icon"/>
+	<link href="<c:url value="/assets/img/favicon.ico"/>" rel="shortcut icon"/>
 
 	<!-- Google Font -->
 	<link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet">
@@ -29,14 +29,14 @@
 	<section class="footer-section">
 		<div class="container">
 			<div class="footer-logo text-center">
-				<a href="index.html"><img src="../assets/../assets/img/logo-light.png" alt=""></a>
+				<a href="index.html"><img src="<c:url value="/assets/assets/img/logo-light.png"/>" alt=""></a>
 			</div>
 			<div class="row">
 				<div class="col-lg-4 col-sm-8">
 					<div class="footer-widget about-widget">
 						<h2>Sơ lược</h2>
 						<p>Luôn đem lại cho quý khách hàng những sản phẩm chất lượng nhất, với phương châm: " Thích thì mua không thích thì vẫn cứ mua :v"</p>
-						<img src="../assets/img/cards.png" alt="">
+						<img src="<c:url value="/assets/img/cards.png"/>" alt="">
 					</div>
 				</div>
 				<div class="col-lg-4 col-sm-8">

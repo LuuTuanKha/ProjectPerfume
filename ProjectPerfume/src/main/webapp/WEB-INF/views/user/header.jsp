@@ -50,6 +50,7 @@
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
+	<script type="text/javascript" src="<c:url value="/assets/js/main.js"/>"></script>
 </head>
 <body>
     <div>
@@ -59,8 +60,8 @@
 				<div class="row">
 					<div class="col-lg-2 text-center text-lg-left" style="margin-top: 5px;">
 						<!-- logo -->
-						<a href="./index.html" class="site-logo">
-							<img src="../assets/img/logo.png" alt="">
+						<a href="${pageContext.request.contextPath}/index" class="site-logo">
+							<img src="<c:url value="/assets/img/logo.png"/>" alt="">
 						</a>
 					</div>
 					<div class="col-xl-6 col-lg-5">
@@ -73,14 +74,14 @@
 						<div class="user-panel">
 							<div class="up-item">
 								<i class="flaticon-profile"></i>
-								<a href="./index_signup.html" class="text-primary">Đăng ký</a> hoặc <b><a href="./index_login.html" style="color:#f51167">Đăng nhập</a></b>
+								<a href="/ProjectPerfume/login/index_signup" class="text-primary">Đăng ký ${para} </a> hoặc <b><a href="/ProjectPerfume/index_login" style="color:#f51167">Đăng nhập</a></b>
 							</div>
 							<div class="up-item">
 								<div class="shopping-card">
 									<i class="flaticon-bag"></i>
 									<span>0</span>
 								</div>
-								<a href="./checkout_0304.html">Giỏ hàng</a>
+								<a href="/ProjectPerfume/checkout_0304">Giỏ hàng</a>
 							</div>
 						</div>
 					</div>
@@ -91,21 +92,21 @@
 			<div class="container" align="center">
 					
 						<ul class="main-menu">
-					<li><a href="#">Trang chủ</a></li>
-					<li><a href="product">Nước hoa nam</a></li>
-					<li><a href="category.html">Nước hoa nữ</a></li>
-					<li><a href="category.html">Bán chạy
+					<li><a href="/ProjectPerfume/index">Trang chủ</a></li>
+					<li><a href="/ProjectPerfume/product">Nước hoa nam</a></li>
+					<li><a href="/ProjectPerfume/category">Nước hoa nữ</a></li>
+					<li><a href="/ProjectPerfume/category">Bán chạy
 						<span class="new">Hot</span>
 					</a></li>
 					
-					<li><a href="./category.html">Sản phẩm mới</a></li>
+					<li><a href="/ProjectPerfume/product">Sản phẩm mới</a></li>
 					<li><a href="#">Xem thêm</a>
 						<ul class="sub-menu">
-							<li><a href="./category.html">Sản phẩm</a></li>
+							<li><a href="/ProjectPerfume/category">Sản phẩm</a></li>
 							
-							<li><a href="./cart.html">Thông tin</a></li>
-							<li><a href="./checkout.html">Thanh toán</a></li>
-							<li><a href="./contact_0304.html">Liên hệ</a></li>
+							<li><a href="/ProjectPerfume/contact">Thông tin</a></li>
+							<li><a href="/ProjectPerfume/checkout">Thanh toán</a></li>
+							<li><a href="/ProjectPerfume/contact">Liên hệ</a></li>
 						</ul>
 					</li>					
 				</ul>

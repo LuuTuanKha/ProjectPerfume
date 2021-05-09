@@ -1,0 +1,8 @@
+<decorators defaultdir="/WEB-INF/views">
+	<decorator name="user" page="layout/user.jsp">
+			<url-pattern>/*</url-pattern>
+	</decorator>
+	<decorator name="login" page="layout/login.jsp">
+			<url-pattern>/login/*</url-pattern>
+	</decorator>
+</decorators>

@@ -1,2 +1,9 @@
 eclipse.preferences.version=1
-encoding/<project>=UTF-8
+encoding//src/main/java/project/perfume/controller/HomeController.java=UTF-8
+encoding//src/main/java/project/perfume/entities/Product.java=UTF-8
+encoding//src/main/webapp/WEB-INF/views/admin/index.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/user/bestseller.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/user/cart.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/user/category.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/user/header.jsp=UTF-8
+encoding//src/main/webapp/WEB-INF/views/user/index_signup.jsp=UTF-8

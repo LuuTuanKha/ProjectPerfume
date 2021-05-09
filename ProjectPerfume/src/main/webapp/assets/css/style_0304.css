@@ -815,8 +815,10 @@ ol {
 }
 
 .product-item .pi-pic {
+	
 	position: relative;
-	display: block;
+	display: block; 
+	object-fit: cover; 
 }
 
 .product-item .tag-new,

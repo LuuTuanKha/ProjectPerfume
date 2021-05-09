@@ -14,16 +14,14 @@
 
         http://www.springframework.org/schema/mvc
 
-        http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
 
         http://www.springframework.org/schema/context
 
               http://www.springframework.org/schema/context/spring-context.xsd">
 
-   <context:component-scan
-      base-package="project.perfume.controller" />
+   <context:component-scan base-package="project.perfume.controller"/>
 
-   <mvc:annotation-driven />
 
    <bean
       class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -34,6 +32,7 @@
      
 
    </bean>
-    <mvc:annotation-driven></mvc:annotation-driven>
-    <mvc:resources location="/assets/" mapping="/assets/**"></mvc:resources>
+   
+    <mvc:annotation-driven/>
+    <mvc:resources location="/assets/" mapping="/assets/**" />
 </beans>
