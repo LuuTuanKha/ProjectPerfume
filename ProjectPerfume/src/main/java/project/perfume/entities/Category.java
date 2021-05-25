@@ -1,13 +1,13 @@
 package project.perfume.entities;
 
-import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -19,8 +19,9 @@ public class Category {
 	
 	private String sex;
 	private String categoryName;
-	@ManyToMany(mappedBy = "categories")
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "category")
 	private Set<Product> listProducts;
+	
 	public Integer getCategoryId() {
 		return categoryId;
 	}

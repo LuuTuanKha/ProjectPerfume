@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 import java.util.Set;
 
+import javax.annotation.Nullable;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -14,7 +15,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
+import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 @Entity
@@ -25,32 +29,55 @@ public class Product {
 	private Integer productId;
 	@Column(columnDefinition = "nvarchar(max)")
 	private String productName;
-	private Integer quantity; //Số lượng sản phẩm còn
-	private Integer selledQTT; //Số lượng sản phẩm đã bán
+	private Integer quantity; //Số lượng
+	private Integer selledQTT; //Sá»‘ lÆ°á»£ng sáº£n pháº©m Ä‘Ã£ bÃ¡n
 	@Column(columnDefinition = "nvarchar(max)")
 	private String description;
 	private Integer size;
 	//private String brand;
 	@Column(columnDefinition = "nvarchar(max)")
 	private String manufacturingDate;
-	private Date expiryDate;
+	private Date expiryDate; //NgÃ y háº¿t háº¡n
 	private String madeIn;
-	private Double buyPrice;
-	private Double sellPrice;
-	private Integer saleID;
+	private Double buyPrice; //GiÃ¡ mua vÃ o (giÃ¡ nháº­p)
+	private Double sellPrice; //GiÃ¡ bÃ¡n ra (cho khÃ¡ch hÃ ng)
 	private Integer ingredientsListing;
-	private Integer status; // 0 - hết hàng 1- ngừng kinh doand
+	private Integer status; // 0 - háº¿t hÃ ng 1- ngá»«ng kinh doand
 	private String image;
-	@ManyToMany(fetch = FetchType.LAZY,cascade = { CascadeType.ALL })
-	@JoinTable(name = "Products_Categories", 
-	joinColumns =  @JoinColumn(name = "productId"),
-	inverseJoinColumns = @JoinColumn(name = "categoryId"))
-	private Set<Category> categories;
-	@ManyToMany(fetch = FetchType.LAZY,cascade = { CascadeType.ALL })
-	@JoinTable(name = "Products_SaleOrderDetais", 
-	joinColumns =  @JoinColumn(name = "productId"),
-	inverseJoinColumns = @JoinColumn(name = "salesOrderDetailId"))
+	private Boolean sex;
+	@ManyToOne
+	@JoinColumn(name = "listProducts", nullable = true)
+	private Category category;
+	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
 	private Set<SalesOrderDetail> saleOrderDetail;
+	
+	@ManyToOne
+	@JoinColumn(name = "listProductOfSupplier", nullable = false)
+	private Supplier supplier;
+	@ManyToOne
+	@JoinColumn(name = "listProductOfBrand", nullable = false)
+	private Brand brand;
+	
+	
+	public Category getCategory() {
+		return category;
+	}
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+	public Brand getBrand() {
+		return brand;
+	}
+	public void setBrand(Brand brand) {
+		this.brand = brand;
+	}
+	public Supplier getSupplier() {
+		return supplier;
+	}
+	public void setSupplier(Supplier supplier) {
+		this.supplier = supplier;
+	}
+	
 	public Integer getProductId() {
 		return productId;
 	}
@@ -81,12 +108,7 @@ public class Product {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public int getSize() {
-		return size;
-	}
-	public void setSize(int size) {
-		this.size = size;
-	}
+	
 	public String getManufacturingDate() {
 		return manufacturingDate;
 	}
@@ -117,12 +139,7 @@ public class Product {
 	public void setSellPrice(Double sellPrice) {
 		this.sellPrice = sellPrice;
 	}
-	public Integer getSaleID() {
-		return saleID;
-	}
-	public void setSaleID(Integer saleID) {
-		this.saleID = saleID;
-	}
+	
 	public Integer getIngredientsListing() {
 		return ingredientsListing;
 	}
@@ -141,42 +158,28 @@ public class Product {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	public Set<Category> getCategories() {
-		return categories;
-	}
-	public void setCategories(Set<Category> categories) {
-		this.categories = categories;
-	}
+	
 	public Set<SalesOrderDetail> getSaleOrderDetail() {
 		return saleOrderDetail;
 	}
 	public void setSaleOrderDetail(Set<SalesOrderDetail> saleOrderDetail) {
 		this.saleOrderDetail = saleOrderDetail;
 	}
-	public Product(String productName, Integer quantity, Integer selledQTT, String description, int size,
-			String manufacturingDate, Date expiryDate, String madeIn, Double buyPrice, Double sellPrice, Integer saleID,
-			Integer ingredientsListing, Integer status, String image, Set<Category> categories,
-			Set<SalesOrderDetail> saleOrderDetail) {
-		super();
-		this.productName = productName;
-		this.quantity = quantity;
-		this.selledQTT = selledQTT;
-		this.description = description;
-		this.size = size;
-		this.manufacturingDate = manufacturingDate;
-		this.expiryDate = expiryDate;
-		this.madeIn = madeIn;
-		this.buyPrice = buyPrice;
-		this.sellPrice = sellPrice;
-		this.saleID = saleID;
-		this.ingredientsListing = ingredientsListing;
-		this.status = status;
-		this.image = image;
-		this.categories = categories;
-		this.saleOrderDetail = saleOrderDetail;
-	}
+	
 	public Product() {
 		super();
+	}
+	public Boolean getSex() {
+		return sex;
+	}
+	public void setSex(Boolean sex) {
+		this.sex = sex;
+	}
+	public Integer getSize() {
+		return size;
+	}
+	public void setSize(Integer size) {
+		this.size = size;
 	}
 	
 	

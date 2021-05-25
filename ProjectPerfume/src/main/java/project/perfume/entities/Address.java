@@ -1,14 +1,11 @@
 package project.perfume.entities;
 
-import java.util.Set;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -20,7 +17,26 @@ public class Address {
 	private String addressName;
 	@ManyToOne
 	@JoinColumn(name = "adresses", nullable = false)
-	private Customer customer;
+	private User customer;
+	public Integer getAddressId() {
+		return addressId;
+	}
+	public void setAddressId(Integer addressId) {
+		this.addressId = addressId;
+	}
+	public String getAddressName() {
+		return addressName;
+	}
+	public void setAddressName(String addressName) {
+		this.addressName = addressName;
+	}
+	public User getCustomer() {
+		return customer;
+	}
+	public void setCustomer(User customer) {
+		this.customer = customer;
+	}
+	
 	
 
 }

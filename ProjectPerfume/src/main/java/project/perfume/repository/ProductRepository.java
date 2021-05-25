@@ -8,4 +8,6 @@ import project.perfume.entities.Product;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Integer>{
 
+	
+
 }

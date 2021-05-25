@@ -1,3 +1,5 @@
+<%@ page import="project.perfume.until.SecurityUtils" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
@@ -50,7 +52,7 @@
 		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 	<![endif]-->
-	<script type="text/javascript" src="<c:url value="/assets/js/main.js"/>"></script>
+	
 </head>
 <body>
     <div>
@@ -60,7 +62,7 @@
 				<div class="row">
 					<div class="col-lg-2 text-center text-lg-left" style="margin-top: 5px;">
 						<!-- logo -->
-						<a href="${pageContext.request.contextPath}/index" class="site-logo">
+						<a href="/ProjectPerfume/index" class="site-logo">
 							<img src="<c:url value="/assets/img/logo.png"/>" alt="">
 						</a>
 					</div>
@@ -72,16 +74,24 @@
 					</div>
 					<div class="col-xl-4 col-lg-5">
 						<div class="user-panel">
+						<security:authorize access = "isAnonymous()">
 							<div class="up-item">
 								<i class="flaticon-profile"></i>
-								<a href="/ProjectPerfume/login/index_signup" class="text-primary">Đăng ký ${para} </a> hoặc <b><a href="/ProjectPerfume/index_login" style="color:#f51167">Đăng nhập</a></b>
+								<a href="/ProjectPerfume/register" class="text-primary">Đăng ký</a> hoặc <b><a href="/ProjectPerfume/login" style="color:#f51167">Đăng nhập</a></b>
 							</div>
+						</security:authorize>
+						<security:authorize access = "isAuthenticated()">
+					<div class="up-item">
+								<i class="flaticon-profile"></i>
+					<a href="/ProjectPerfume/profile" class="text-primary"></a> PRF<b> <%=SecurityUtils.getPrincipal().getFullName()%><a href="/ProjectPerfume/login" style="color:#f51167">Đăng xuất</a></b>
+					</div>
+				</security:authorize>
 							<div class="up-item">
 								<div class="shopping-card">
 									<i class="flaticon-bag"></i>
 									<span>0</span>
 								</div>
-								<a href="/ProjectPerfume/checkout_0304">Giỏ hàng</a>
+								<a href="/ProjectPerfume/checkout">Giỏ hàng</a>
 							</div>
 						</div>
 					</div>

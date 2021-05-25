@@ -1,11 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-   <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+     <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+      <%@ taglib uri="http://www.opensymphony.com/sitemesh/decorator" prefix="decorate" %>
 <head>
-
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript" src="js/main.js"></script>
 </head>
 <body>
-   <b>This is Admin body</b>
+  <br><br>
+<div class=" col-12 text-center">
+ 
+ <h1>TẠO MỚI SẢN PHẨM</h1>
+ </div>
    <!-- The core Firebase JS SDK is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-app.js"></script>
 
@@ -13,6 +20,25 @@
      https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/8.4.3/firebase-analytics.js"></script>
 
+<section class="hero-section">
+<div class="col-12">
+
+    <div class="col-12 text-center">
+     
+	<form enctype="multipart/form-data" >
+    <input type="text" class="col-6 text-center" >
+		<label>
+			Select image :
+		</label>
+		<input type="file" id="image" accept="image/*"><br><br>
+		<button type="button" onclick="upload()">Upload</button>
+    <h4 id="link">Link is empty</h4>
+    <!-- <img src="https://firebasestorage.googleapis.com/v0/b/projectperfume-faed4.appspot.com/o/images%2F11.jpg?alt=media&token=76e10fd1-e661-494a-a046-40afd0f16fa5" class="pi-pic"> -->
+	</form>
+  </div>
+</div>
+</section>
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
 <script>
   // Your web app's Firebase configuration
   // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -30,22 +56,5 @@
   firebase.analytics();
 </script>
 
-<div>
-	<form enctype="multipart/form-data">
-		<label>
-			Select image :
-		</label>
-		<input type="file" id="image" accept="image/*"><br><br>
-		<button type="button" onclick="upload">Upload</button>
-	</form>
-</center>
-  <script src="js/jquery-3.2.1.min.js"></script> 
-	 <script src="js/bootstrap.min.js"></script> 
-	 <script src="js/jquery.slicknav.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.nicescroll.min.js"></script>
-	<script src="js/jquery.zoom.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script> 
-	<script src="js/main.js"></script>
 
 </body>

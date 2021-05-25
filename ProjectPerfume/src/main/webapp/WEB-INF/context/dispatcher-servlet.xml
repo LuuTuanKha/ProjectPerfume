@@ -20,7 +20,7 @@
 
               http://www.springframework.org/schema/context/spring-context.xsd">
 
-   <context:component-scan base-package="project.perfume.controller"/>
+   <context:component-scan base-package="project.perfume.controller, project.perfume.api"/>
 
 
    <bean

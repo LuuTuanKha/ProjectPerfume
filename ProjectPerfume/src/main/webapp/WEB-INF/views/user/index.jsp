@@ -3,7 +3,7 @@
      <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>TK'Shop - Trang chủ</title>
 </head>
 <body>
 <section class="hero-section">
@@ -54,7 +54,37 @@
 
 
 
-	
+	<!-- Features section -->
+	<!-- <section class="features-section">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-4 p-0 feature">
+					<div class="feature-inner">
+						<div class="feature-icon">
+							<img src="img/icons/1.png" alt="#">
+						</div>
+						<h2>Thanh toán tiện lợi</h2>
+					</div>
+				</div>
+				<div class="col-md-4 p-0 feature">
+					<div class="feature-inner">
+						<div class="feature-icon">
+							<img src="img/icons/2.png" alt="#">
+						</div>
+						<h2>Sản phẩm chính hãng</h2>
+					</div>
+				</div>
+				<div class="col-md-4 p-0 feature">
+					<div class="feature-inner">
+						<div class="feature-icon">
+							<img src="img/icons/3.png" alt="#">
+						</div>
+						<h2>Giao hàng miễn phí</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section> -->
 	<!-- Features section end -->
 
 
@@ -170,30 +200,117 @@
 						</div>
 					</div>
 				</div>
-				<c:forEach items="${list}" var="product"> 
- 
- 		 <div class="col-lg-3 col-sm-6">
+				<div class="col-lg-3 col-sm-6">
 					<div class="product-item">
 						<div class="pi-pic">
-							<img src="https://firebasestorage.googleapis.com/v0/b/projectperfume-faed4.appspot.com/o/images%2F11.jpg?alt=media&token=76e10fd1-e661-494a-a046-40afd0f16fa5">
+							<div class="tag-sale">ON SALE</div>
+							<img src="<c:url value="/assets/img/product/6.jpg"/>" alt="">
 							<div class="pi-links">
 								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>CHỌN MUA</span></a>
-								<a href="#" class="add-card"><i class="flaticon-favorite"></i><span>XEM CHI TIẾT</span></a>
-								
-								<!--  <a href="#" class="wishlist-btn"><i class="flaticon-add"></i></a> -->
+								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
 							</div>
 						</div>
 						<div class="pi-text">
-							<h6>${product.sellPrice} VNĐ</h6>
-							<p>${product.productName}</p>
+							<h6>599,000 VNĐ</h6>
+							<p>Quần Kaki đen</p>
 						</div>
 					</div>
 				</div>
-			
-		</c:forEach>
+				<div class="col-lg-3 col-sm-6">
+					<div class="product-item">
+						<div class="pi-pic">
+							<img src="<c:url value="/assets/img/product/7.jpg"/>" alt="">
+							<div class="pi-links">
+								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>CHỌN MUA</span></a>
+								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+							</div>
+						</div>
+						<div class="pi-text">
+							<h6>499,000 VNĐ</h6>
+							<p>Áo dài truyền thống </p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="product-item">
+						<div class="pi-pic">
+							<img src="<c:url value="/assets/img/product/8.jpg"/>" alt="">
+							<div class="pi-links">
+								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>CHỌN MUA</span></a>
+								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+							</div>
+						</div>
+						<div class="pi-text">
+							<h6>750,000 VNĐ</h6>
+							<p>Váy xẻ tà </p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="product-item">
+						<div class="pi-pic">
+							<img src="<c:url value="/assets/img/product/9.jpg"/>" alt="">
+							<div class="pi-links">
+								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>CHỌN MUA</span></a>
+								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+							</div>
+						</div>
+						<div class="pi-text">
+							<h6>399,000 VNĐ</h6>
+							<p>Áo thun đen StreetWear </p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="product-item">
+						<div class="pi-pic">
+							<img src="<c:url value="/assets/img/product/10.jpg"/>" alt="">
+							<div class="pi-links">
+								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>CHỌN MUA</span></a>
+								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+							</div>
+						</div>
+						<div class="pi-text">
+							<h6>249,000 VNĐ</h6>
+							<p>Túi dạ quang</p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="product-item">
+						<div class="pi-pic">
+							<img src="<c:url value="/assets/img/product/11.jpg"/>" alt="">
+							<div class="pi-links">
+								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>CHỌN MUA</span></a>
+								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+							</div>
+						</div>
+						<div class="pi-text">
+							<h6>399,000 VNĐ</h6>
+							<p>Áo khoác Hades #110 </p>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-3 col-sm-6">
+					<div class="product-item">
+						<div class="pi-pic">
+							<img src="<c:url value="/assets/img/product/12.jpg"/>" alt="">
+							<div class="pi-links">
+								<a href="#" class="add-card"><i class="flaticon-bag"></i><span>CHỌN MUA</span></a>
+								<a href="#" class="wishlist-btn"><i class="flaticon-heart"></i></a>
+							</div>
+						</div>
+						<div class="pi-text">
+							<h6>700,000 VNĐ</h6>
+							<p>Áo khoác Hades #495 </p>
+						</div>
+					</div>
+				</div>
 			</div>
-		
-				
+			<div class="text-center pt-5">
+				<button class="site-btn sb-line sb-dark">XEM THÊM</button>
+			</div>
+		</div>
 	</section>
 	<!-- Product filter section end -->
 
