@@ -1,11 +1,8 @@
 package project.perfume.entities;
 
 import java.sql.Date;
-import java.util.List;
 import java.util.Set;
 
-import javax.annotation.Nullable;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -13,21 +10,25 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+
+import org.hibernate.search.annotations.Analyze;
+import org.hibernate.search.annotations.Field;
+import org.hibernate.search.annotations.Index;
+import org.hibernate.search.annotations.Indexed;
+import org.hibernate.search.annotations.Store;
 
 @Entity
 @Table(name = "Products")
+@Indexed
 public class Product {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer productId;
 	@Column(columnDefinition = "nvarchar(max)")
+	@Field(index= Index.YES, analyze= Analyze.YES, store= Store.NO)
 	private String productName;
 	private Integer quantity; //Số lượng
 	private Integer selledQTT; //Sá»‘ lÆ°á»£ng sáº£n pháº©m Ä‘Ã£ bÃ¡n
@@ -41,10 +42,11 @@ public class Product {
 	private String madeIn;
 	private Double buyPrice; //GiÃ¡ mua vÃ o (giÃ¡ nháº­p)
 	private Double sellPrice; //GiÃ¡ bÃ¡n ra (cho khÃ¡ch hÃ ng)
+	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
 	private Integer ingredientsListing;
 	private Integer status; // 0 - háº¿t hÃ ng 1- ngá»«ng kinh doand
 	private String image;
-	private Boolean sex;
+	private Boolean sex; // 0: Male 1: Female
 	@ManyToOne
 	@JoinColumn(name = "listProducts", nullable = true)
 	private Category category;
@@ -56,6 +58,7 @@ public class Product {
 	private Supplier supplier;
 	@ManyToOne
 	@JoinColumn(name = "listProductOfBrand", nullable = false)
+//	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
 	private Brand brand;
 	
 	

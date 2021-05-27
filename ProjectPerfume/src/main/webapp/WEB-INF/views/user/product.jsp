@@ -22,7 +22,7 @@
 	<section class="product-section">
 		<div class="container">
 			<div class="back-link">
-				<a href="/ProjectPerfume/category"> &lt;&lt; Quay lại mua sắm</a>
+				<a href="/ProjectPerfume/category?page=1&limit=12"> &lt;&lt; Quay lại mua sắm</a>
 			</div>
 			<div class="row">
 				<div class="col-lg-6">
@@ -39,8 +39,8 @@
 					</div>
 				</div>
 				<div class="col-lg-6 product-details">
-					<h2 class="p-title">Áo dài cách tân</h2>
-					<h3 class="p-price">499.000 đ</h3>
+					<h2 class="p-title">${product.productName}</h2>
+					<h3 class="p-price">${product.sellPrice}</h3>
 					<h4 class="p-stock">Trạng thái: <span>Còn hàng</span></h4>
 					<div class="p-rating">
 						<i class="fa fa-star-o"></i>

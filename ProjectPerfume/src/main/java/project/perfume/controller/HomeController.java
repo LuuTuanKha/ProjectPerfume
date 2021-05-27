@@ -1,4 +1,4 @@
-package project.perfume.controller;
+	package project.perfume.controller;
 
 import java.util.List;
 
@@ -92,12 +92,14 @@ public class HomeController {
       return mav;
    }
    @RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public ModelAndView logout(HttpServletRequest request, HttpServletResponse response) {
+	public String logout(HttpServletRequest request, HttpServletResponse response) {
+	   System.out.println("Logout catch!!");
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 		if (auth != null) {
 			new SecurityContextLogoutHandler().logout(request, response, auth);
+			System.out.println("Logout catch2!!");
 		}
-		return new ModelAndView("redirect:/index");
+		return "redirect:/login";
 	}
    @RequestMapping(value = "/accessDenied", method = RequestMethod.GET)
 	public ModelAndView accessDenied() {

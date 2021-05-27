@@ -32,6 +32,7 @@ public class ProductConverter {
 	public ProductDTO toDto(Product product) {
 		ModelMapper modelMapper = new ModelMapper();
 		ProductDTO dto = modelMapper.map(product, ProductDTO.class);
+		System.out.println("id"+ dto.getId());
 		return dto;
 		
 	}

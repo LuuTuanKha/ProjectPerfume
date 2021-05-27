@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AbstractDTO<T> {
-	
+
 	private Integer id;
 	private Timestamp createdDate;
 	private Timestamp modifiedDate;
@@ -22,76 +22,99 @@ public class AbstractDTO<T> {
 	private String alert;
 	private String message;
 	private String type;
-	
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer integer) {
 		this.id = integer;
 	}
+
 	public Timestamp getCreatedDate() {
 		return createdDate;
 	}
+
 	public void setCreatedDate(Timestamp createdDate) {
 		this.createdDate = createdDate;
 	}
+
 	public Timestamp getModifiedDate() {
 		return modifiedDate;
 	}
+
 	public void setModifiedDate(Timestamp modifiedDate) {
 		this.modifiedDate = modifiedDate;
 	}
+
 	public String getCreatedBy() {
 		return createdBy;
 	}
+
 	public void setCreatedBy(String createdBy) {
 		this.createdBy = createdBy;
 	}
+
 	public String getModifiedBy() {
 		return modifiedBy;
 	}
+
 	public void setModifiedBy(String modifiedBy) {
 		this.modifiedBy = modifiedBy;
 	}
+
 	public long[] getIds() {
 		return ids;
 	}
+
 	public void setIds(long[] ids) {
 		this.ids = ids;
 	}
+
 	public List<T> getListResult() {
 		return listResult;
 	}
+
 	public void setListResult(List<T> listResult) {
 		this.listResult = listResult;
 	}
+
 	public Integer getPage() {
 		return page;
 	}
+
 	public void setPage(Integer page) {
 		this.page = page;
 	}
+
 	public Integer getTotalPage() {
 		return totalPage;
 	}
+
 	public void setTotalPage(Integer totalPage) {
 		this.totalPage = totalPage;
 	}
+
 	public Integer getTotalItem() {
 		return totalItem;
 	}
+
 	public void setTotalItem(Integer totalItem) {
 		this.totalItem = totalItem;
 	}
+
 	public String getSortName() {
 		return sortName;
 	}
+
 	public void setSortName(String sortName) {
 		this.sortName = sortName;
 	}
+
 	public String getSortBy() {
 		return sortBy;
 	}
+
 	public void setSortBy(String sortBy) {
 		this.sortBy = sortBy;
 	}
@@ -119,11 +142,12 @@ public class AbstractDTO<T> {
 	public void setType(String type) {
 		this.type = type;
 	}
+
 	public Integer getLimit() {
 		return limit;
 	}
+
 	public void setLimit(Integer limit) {
 		this.limit = limit;
 	}
 }
-

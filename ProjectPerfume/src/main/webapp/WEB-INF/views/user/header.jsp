@@ -15,43 +15,6 @@
 	<meta name="description" content=" Divisima | eCommerce Template">
 	<meta name="keywords" content="divisima, eCommerce, creative, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- Favicon -->
-	<!-- <link href="img/favicon.ico" rel="shortcut icon"/> -->
-
-	<!-- Google Font -->
-	<!-- <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300,300i,400,400i,700,700i" rel="stylesheet"> -->
-
-		<!-- Stylesheets -->
-	<!-- <link rel="stylesheet" href="css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="css/font-awesome.min.css"/>
-	<link rel="stylesheet" href="css/flaticon.css"/>
-	<link rel="stylesheet" href="css/slicknav.min.css"/> -->
-	<!-- <link rel="stylesheet" href="css/jquery-ui.min.css"/> -->
-	<!-- <script
-    src="https://code.jquery.com/jquery-3.3.1.js"
-    integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous">
-</script> -->
-	<!-- <link rel="stylesheet" href="css/jquery-ui.min.css"/> -->
-	<!-- <link rel="stylesheet" href="css/owl.carousel.min.css"/>
-	<link rel="stylesheet" href="css/animate.css"/>
-	<link rel="stylesheet" href="css/style.css"/> -->
-	
-	<!-- Stylesheets -->
-	<!-- <link rel="stylesheet" href="css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="css/font-awesome.min.css"/>
-	<link rel="stylesheet" href="css/flaticon.css"/>
-	<link rel="stylesheet" href="css/slicknav.min.css"/>
-	<link rel="stylesheet" href="css/jquery-ui.min.css"/>
-	<link rel="stylesheet" href="css/owl.carousel.min.css"/>
-	<link rel="stylesheet" href="css/animate.css"/>
-	<link rel="stylesheet" href="css/style.css"/> -->
-
-
-	<!--[if lt IE 9]>
-		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
 	
 </head>
 <body>
@@ -83,7 +46,7 @@
 						<security:authorize access = "isAuthenticated()">
 					<div class="up-item">
 								<i class="flaticon-profile"></i>
-					<a href="/ProjectPerfume/profile" class="text-primary"></a> PRF<b> <%=SecurityUtils.getPrincipal().getFullName()%><a href="/ProjectPerfume/login" style="color:#f51167">Đăng xuất</a></b>
+					<a href="/ProjectPerfume/profile" class="text-primary"></a> PRF<b> <%=SecurityUtils.getPrincipal().getFullName()%><a href="/ProjectPerfume/logout" style="color:#f51167">Đăng xuất</a></b>
 					</div>
 				</security:authorize>
 							<div class="up-item">
@@ -102,10 +65,10 @@
 			<div class="container" align="center">
 					
 						<ul class="main-menu">
-					<li><a href="/ProjectPerfume/index">Trang chủ</a></li>
-					<li><a href="/ProjectPerfume/product">Nước hoa nam</a></li>
-					<li><a href="/ProjectPerfume/category">Nước hoa nữ</a></li>
-					<li><a href="/ProjectPerfume/category">Bán chạy
+					<li><a href="${pageContext.request.contextPath}/index">Trang chủ</a></li>
+					<li><a href="${pageContext.request.contextPath}/category?page=1&limit=12">Nước hoa nam</a></li>
+					<li><a href="${pageContext.request.contextPath}/category?page=1&limit=12">Nước hoa nữ</a></li>
+					<li><a href="${pageContext.request.contextPath}/category?page=1&limit=12">Bán chạy
 						<span class="new">Hot</span>
 					</a></li>
 					
@@ -114,9 +77,9 @@
 						<ul class="sub-menu">
 							<li><a href="/ProjectPerfume/category">Sản phẩm</a></li>
 							
-							<li><a href="/ProjectPerfume/contact">Thông tin</a></li>
-							<li><a href="/ProjectPerfume/checkout">Thanh toán</a></li>
-							<li><a href="/ProjectPerfume/contact">Liên hệ</a></li>
+							<li><a href="${pageContext.request.contextPath}/contact">Thông tin</a></li>
+							<li><a href="${pageContext.request.contextPath}/checkout">Thanh toán</a></li>
+							<li><a href="${pageContext.request.contextPath}/contact">Liên hệ</a></li>
 						</ul>
 					</li>					
 				</ul>

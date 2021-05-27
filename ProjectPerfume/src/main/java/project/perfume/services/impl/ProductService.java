@@ -3,11 +3,9 @@ package project.perfume.services.impl;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import project.perfume.component.ProductConverter;
 import project.perfume.dto.ProductDTO;
@@ -86,11 +84,23 @@ public class ProductService implements IProductService {
 		// TODO Auto-generated method stub
 		List<ProductDTO> models = new ArrayList<>();
 		List<Product> entities = repo.findAll();
+		
 		for (Product item: entities) {
 			ProductDTO ProductDTO = converter.toDto(item);
 			models.add(ProductDTO);
 		}
 		return models;
 	}
+
+	@Override
+	public List<ProductDTO> findAllSortByPrice(Pageable pageable) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+	
+	
 
 }

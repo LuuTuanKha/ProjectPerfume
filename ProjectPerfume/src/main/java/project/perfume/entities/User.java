@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -17,10 +18,11 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "Users")
-public class User extends BaseEntity {
-
+public class User  {
+	
+	@Id
 	@Column(name = "username")
-	private String userName;
+	private String userName;	
 	@Column(name = "password", nullable = false)
 	private String password;
 	@Column(name = "status", nullable = false)
@@ -39,6 +41,14 @@ public class User extends BaseEntity {
 	private Set<Address> adresses;
 	
 	
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
 	public String getEmail() {
 		return email;
@@ -100,13 +110,7 @@ public class User extends BaseEntity {
 		this.roles = roles;
 	}
 
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+	
 
 	public String getPassword() {
 		return password;

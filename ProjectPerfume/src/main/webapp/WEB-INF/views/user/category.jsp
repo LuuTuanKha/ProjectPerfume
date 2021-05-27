@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -6,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<form action="<c:url value='/category'/>" id="formSubmit" method="get">
 
 
 	<div class="page-top-info">
@@ -117,234 +119,82 @@
 
 				<div class="col-lg-9  order-1 order-lg-2 mb-5 mb-lg-0">
 					<div class="row">
-						<div class="col-lg-4 col-sm-6">
-							<div class="product-item">
-								<div class="pi-pic">
-									<div class="tag-sale">ON SALE</div>
-									<img src="<c:url value="/assets/img/product/6.jpg"/>" alt="">
-									<div class="pi-links">
-										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD
-												TO CART</span></a> <a href="#" class="wishlist-btn"><i
-											class="flaticon-heart"></i></a>
+						<c:forEach var="item" items="${model.listResult}">
+							<div class="col-lg-4 col-sm-6">
+								<div class="product-item">
+									<div class="pi-pic">
+										<div class="tag-sale">ON SALE</div>
+										<a href="${pageContext.request.contextPath}/product/view?id=${item.id}">
+										<img src="<c:url value="/assets/img/product/6.jpg"/>" alt="">
+										</a>
+										<div class="pi-links">
+											<a href="#" class="add-card"><i class="flaticon-bag"></i><span>
+													CHỌN MUA</span></a> <a href="#" class="wishlist-btn"><i
+												class="flaticon-heart"></i></a>
+										</div>
+									</div>
+									<div class="pi-text">
+										<h6>${item.sellPrice} VNĐ</h6>
+										<p>${item.productName}</p>
 									</div>
 								</div>
-								<div class="pi-text">
-									<h6>$35,00</h6>
-									<p>Black and White Stripes Dress</p>
-								</div>
 							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<div class="product-item">
-								<div class="pi-pic">
-									<img src="<c:url value="/assets/img/product/7.jpg"/>" alt="">
-									<div class="pi-links">
-										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD
-												TO CART</span></a> <a href="#" class="wishlist-btn"><i
-											class="flaticon-heart"></i></a>
-									</div>
-								</div>
-								<div class="pi-text">
-									<h6>$35,00</h6>
-									<p>Flamboyant Pink Top</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<div class="product-item">
-								<div class="pi-pic">
-									<img src="<c:url value="/assets/img/product/8.jpg"/>" alt="">
-									<div class="pi-links">
-										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD
-												TO CART</span></a> <a href="#" class="wishlist-btn"><i
-											class="flaticon-heart"></i></a>
-									</div>
-								</div>
-								<div class="pi-text">
-									<h6>$35,00</h6>
-									<p>Flamboyant Pink Top</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<div class="product-item">
-								<div class="pi-pic">
-									<img src="<c:url value="/assets/img/product/10.jpg"/>" alt="">
-									<div class="pi-links">
-										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD
-												TO CART</span></a> <a href="#" class="wishlist-btn"><i
-											class="flaticon-heart"></i></a>
-									</div>
-								</div>
-								<div class="pi-text">
-									<h6>$35,00</h6>
-									<p>Black and White Stripes Dress</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<div class="product-item">
-								<div class="pi-pic">
-									<img src="<c:url value="/assets/img/product/11.jpg"/>" alt="">
-									<div class="pi-links">
-										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD
-												TO CART</span></a> <a href="#" class="wishlist-btn"><i
-											class="flaticon-heart"></i></a>
-									</div>
-								</div>
-								<div class="pi-text">
-									<h6>$35,00</h6>
-									<p>Flamboyant Pink Top</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<div class="product-item">
-								<div class="pi-pic">
-									<img src="<c:url value="/assets/img/product/12.jpg"/>" alt="">
-									<div class="pi-links">
-										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD
-												TO CART</span></a> <a href="#" class="wishlist-btn"><i
-											class="flaticon-heart"></i></a>
-									</div>
-								</div>
-								<div class="pi-text">
-									<h6>$35,00</h6>
-									<p>Flamboyant Pink Top</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<div class="product-item">
-								<div class="pi-pic">
-									<img src="<c:url value="/assets/img/product/5.jpg"/>" alt="">
-									<div class="pi-links">
-										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD
-												TO CART</span></a> <a href="#" class="wishlist-btn"><i
-											class="flaticon-heart"></i></a>
-									</div>
-								</div>
-								<div class="pi-text">
-									<h6>$35,00</h6>
-									<p>Flamboyant Pink Top</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<div class="product-item">
-								<div class="pi-pic">
-									<img src="<c:url value="/assets/img/product/9.jpg"/>" alt="">
-									<div class="pi-links">
-										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD
-												TO CART</span></a> <a href="#" class="wishlist-btn"><i
-											class="flaticon-heart"></i></a>
-									</div>
-								</div>
-								<div class="pi-text">
-									<h6>$35,00</h6>
-									<p>Flamboyant Pink Top</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<div class="product-item">
-								<div class="pi-pic">
-									<img src="<c:url value="/assets/img/product/1.jpg"/>" alt="">
-									<div class="pi-links">
-										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD
-												TO CART</span></a> <a href="#" class="wishlist-btn"><i
-											class="flaticon-heart"></i></a>
-									</div>
-								</div>
-								<div class="pi-text">
-									<h6>$35,00</h6>
-									<p>Flamboyant Pink Top</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<div class="product-item">
-								<div class="pi-pic">
-									<div class="tag-new">new</div>
-									<img src="<c:url value="/assets/img/product/2.jpg"/>" alt="">
-									<div class="pi-links">
-										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD
-												TO CART</span></a> <a href="#" class="wishlist-btn"><i
-											class="flaticon-heart"></i></a>
-									</div>
-								</div>
-								<div class="pi-text">
-									<h6>$35,00</h6>
-									<p>Black and White Stripes Dress</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<div class="product-item">
-								<div class="pi-pic">
-									<img src="<c:url value="/assets/img/product/3.jpg"/>" alt="">
-									<div class="pi-links">
-										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD
-												TO CART</span></a> <a href="#" class="wishlist-btn"><i
-											class="flaticon-heart"></i></a>
-									</div>
-								</div>
-								<div class="pi-text">
-									<h6>$35,00</h6>
-									<p>Flamboyant Pink Top</p>
-								</div>
-							</div>
-						</div>
-						<div class="col-lg-4 col-sm-6">
-							<div class="product-item">
-								<div class="pi-pic">
-									<img src="<c:url value="/assets/img/product/4.jpg"/>" alt="">
-									<div class="pi-links">
-										<a href="#" class="add-card"><i class="flaticon-bag"></i><span>ADD
-												TO CART</span></a> <a href="#" class="wishlist-btn"><i
-											class="flaticon-heart"></i></a>
-									</div>
-								</div>
-								<div class="pi-text">
-									<h6>$35,00</h6>
-									<p>Flamboyant Pink Top</p>
-								</div>
-							</div>
-						</div>
+						</c:forEach>
+						
+						
+		
+		
 
+		
+				
+			
+
+		
+
+
+
+
+					
+					
 
 					</div>
+				
 				</div>
+			
 			</div>
+				<div class="col-12 d-flex justify-content-center">
+					<div class="row">
+					<ul class="pagination" id="pagination"></ul>	
+								<input type="hidden" value="" id="page" name="page"/>
+											<input type="hidden" value="" id="limit" name="limit"/>						
+					</div>
+					</div>
 		</div>
 	</section>
-	<div class="container" style="margin-left: 500px; margin-bottom: 40px;">
-		<nav aria-label="Page navigation">
-			<ul class="pagination" id="paginationn"></ul>
-			<input type="hidden" value="" id="page" name="page" /> <input
-				type="hidden" value="" id="limit" name="limit" />
-		</nav>
-	</div>
-	<script type="text/javascript"
-		src="<c:url value="/assets/js/jquery.twbsPagination.js"/>"></script>
+
+	
+	</form>
+
+	
 	<!-- Category section end -->
-	<script type="text/javascript">
-		var totalPages = ${model.totalPage};
-		var currentPage = ${model.page};
-		$(function() {
-			window.pagObj = $('#pagination').twbsPagination({
-				totalPages : totalPages,
-				visiblePages : 10,
-				startPage : currentPage,
-				onPageClick : function(event, page) {
-					if (currentPage != page) {
-						$('#limit').val(2);
-						$('#page').val(page);
-						$('#formSubmit').submit();
-					}
+	<script >
+	var totalPages = ${model.totalPage};
+	var currentPage = ${model.page};
+	$(function () {
+        window.pagObj = $('#pagination').twbsPagination({
+            totalPages: totalPages,
+            visiblePages: 10,
+            startPage: currentPage,
+            onPageClick: function (event, page) {
+            	if (currentPage != page) {
+            		$('#limit').val(12);
+					$('#page').val(page);
+					$('#formSubmit').submit();
 				}
-			});
-		});
+            }
+        });
+    });
+
 	</script>
 
 </body>
