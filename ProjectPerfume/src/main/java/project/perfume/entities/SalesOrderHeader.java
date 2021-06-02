@@ -2,7 +2,6 @@ package project.perfume.entities;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -11,8 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
 import lombok.Data;
@@ -32,9 +29,6 @@ public class SalesOrderHeader {
 	@OneToMany(mappedBy = "saleOrderHeader", fetch = FetchType.LAZY)
 	private List<SalesOrderDetail> saleOrderDetails;
 	
-	@OneToOne(mappedBy = "saleOrderHeader", cascade = CascadeType.ALL)
-	@PrimaryKeyJoinColumn
-	private ShipDetail shipDetail;
 	
 	@ManyToOne
 	@JoinColumn(name = "saleOrderHeader", nullable = false)
@@ -44,6 +38,19 @@ public class SalesOrderHeader {
 	private double subTotal;
 	private String comments;
 	private Date dueDate;
+	
+	//------------
+	private String receiverName;
+	private String reciverAdress;
+	private String reciverPhone;
+	private String status;
+	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public Integer getSaleOrderHeaderID() {
 		return saleOrderHeaderID;
 	}
@@ -56,12 +63,7 @@ public class SalesOrderHeader {
 	public void setSaleOrderDetails(List<SalesOrderDetail> saleOrderDetails) {
 		this.saleOrderDetails = saleOrderDetails;
 	}
-	public ShipDetail getShipDetail() {
-		return shipDetail;
-	}
-	public void setShipDetail(ShipDetail shipDetail) {
-		this.shipDetail = shipDetail;
-	}
+	
 	public User getCustomer() {
 		return customer;
 	}
@@ -69,10 +71,10 @@ public class SalesOrderHeader {
 		this.customer = customer;
 	}
 	public Date getOrderDate() {
-		return new Date(new java.util.Date().getTime());
+		return orderDate;
 	}
-	public void setOrderDate(Date orderDate) {
-		this.orderDate = orderDate;
+	public void setOrderDate() {
+		this.orderDate = new Date(new java.util.Date().getTime());
 	}
 	public double getSubTotal() {
 		return subTotal;
@@ -92,6 +94,25 @@ public class SalesOrderHeader {
 	public void setDueDate(Date dueDate) {
 		this.dueDate = dueDate;
 	}
+	public String getReceiverName() {
+		return receiverName;
+	}
+	public void setReceiverName(String receiverName) {
+		this.receiverName = receiverName;
+	}
+	public String getReciverAdress() {
+		return reciverAdress;
+	}
+	public void setReciverAdress(String reciverAdress) {
+		this.reciverAdress = reciverAdress;
+	}
+	public String getReciverPhone() {
+		return reciverPhone;
+	}
+	public void setReciverPhone(String reciverPhone) {
+		this.reciverPhone = reciverPhone;
+	}
+	
 	
 	
 

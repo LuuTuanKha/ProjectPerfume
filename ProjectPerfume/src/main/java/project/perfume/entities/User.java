@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
-import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.Id;
@@ -34,12 +34,14 @@ public class User  {
 	private List<Role> roles = new ArrayList<>();
 	private String fullName;
 	private String sex;
-	private Integer age;
+	
 	@OneToMany(fetch = FetchType.LAZY,mappedBy = "customer")
 	private Set<SalesOrderHeader> saleOrderHeader;
-	@OneToMany(fetch = FetchType.LAZY,mappedBy = "customer")
-	private Set<Address> adresses;
+	@OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
+	private Address adresses;
 	
+	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+	Set<Cart> cart;
 	
 
 	public String getUserName() {
@@ -66,13 +68,7 @@ public class User  {
 		this.sex = sex;
 	}
 
-	public Integer getAge() {
-		return age;
-	}
 
-	public void setAge(Integer age) {
-		this.age = age;
-	}
 
 	public Set<SalesOrderHeader> getSaleOrderHeader() {
 		return saleOrderHeader;
@@ -82,12 +78,22 @@ public class User  {
 		this.saleOrderHeader = saleOrderHeader;
 	}
 
-	public Set<Address> getAdresses() {
+	
+
+	public Address getAdresses() {
 		return adresses;
 	}
 
-	public void setAdresses(Set<Address> adresses) {
+	public void setAdresses(Address adresses) {
 		this.adresses = adresses;
+	}
+
+	public Set<Cart> getCart() {
+		return cart;
+	}
+
+	public void setCart(Set<Cart> cart) {
+		this.cart = cart;
 	}
 
 	public User() {

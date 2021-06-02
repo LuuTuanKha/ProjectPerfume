@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import project.perfume.dto.ProductDTO;
+import project.perfume.entities.Cart;
+import project.perfume.repository.CartRepository;
 import project.perfume.services.IProductService;
 import project.perfume.services.impl.ProductService;
 
@@ -26,6 +28,9 @@ public class HomeController {
 	
 	@Autowired
 	private IProductService productService = new ProductService();
+	
+	@Autowired
+	private  CartRepository cartRepo;
 	
 	//CONTROLLER
    @RequestMapping(value = {"/categoryregister_moi","/register"}, method = RequestMethod.GET)
@@ -43,15 +48,9 @@ public class HomeController {
    @RequestMapping(value = {"/index","/"}, method = RequestMethod.GET)
    public ModelAndView springMVCPage() {
       ModelAndView mav = new ModelAndView("user/index");
-      List<ProductDTO> listProducts = productService.findAll();
-      for (ProductDTO productDTO : listProducts) {
-    	  System.out.println(productDTO.getId());
-		
-	}
-      
-      mav.addObject("list", listProducts);
-      String s= "ĐÃ";
-      mav.addObject("para", s );
+//      List<Cart> carts = cartRepo.findByPkUsername("nguyenvana");
+//      System.out.println(carts.size());
+     
       return mav;
    }
    
@@ -80,11 +79,11 @@ public class HomeController {
       return mav;
    }
    
-   @RequestMapping(value = "/checkout", method = RequestMethod.GET)
-   public ModelAndView springMVCPageCheckout0304() {
-      ModelAndView mav = new ModelAndView("user/checkout_0304");
-      return mav;
-   }
+//   @RequestMapping(value = "/checkout", method = RequestMethod.GET)
+//   public ModelAndView springMVCPageCheckout0304() {
+//      ModelAndView mav = new ModelAndView("user/checkout");
+//      return mav;
+//   }
    
    @RequestMapping(value = "/login/index_signup", method = RequestMethod.GET)
    public ModelAndView springMVCPageindex_signup() {

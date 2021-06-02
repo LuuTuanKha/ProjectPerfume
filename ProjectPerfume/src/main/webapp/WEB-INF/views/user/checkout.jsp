@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+      <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -24,8 +25,8 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 order-2 order-lg-1">
-					<form class="checkout-form">
-						<div class="cf-title">Địa chỉ thanh toán</div>
+					<form class="checkout-form" name="${pageContext.request.contextPath}/checkout" action="${pageContext.request.contextPath}/checkout" method="POST">
+						<div class="cf-title">Thông tin đơn hàng</div>
 						<div class="row">
 							<div class="col-md-7">
 								<p>Thông tin thanh toán</p>
@@ -44,22 +45,25 @@
 							</div>
 						</div>
 						<div class="row address-inputs">
+					
+						
 							<div class="col-md-12">
-								<input type="text" placeholder="Địa chỉ">
-								<input type="text" placeholder="Phường/Xã">
-								<input type="text" placeholder="Quận/Huyện">
+								<h6> Tên người nhận:</h6>
+								<input type="text" placeholder="Họ và tên người nhận" value="${user.userName}" name = "receiverName">
+								<input type="text" placeholder="Địa chỉ" value="${user.getAdresses().addressName}" name = "reciverAdress">
+								<input type="text" placeholder="Ghi chú" name = "comments">
 							</div>
-							<div class="col-md-6">
-								<input type="text" placeholder="Tỉnh/Thành phố">
+							
+							<div class="col-md-12">
+								<input type="text" placeholder="Số điện thoại" >
 							</div>
-							<div class="col-md-6">
-								<input type="text" placeholder="Số điện thoại">
-							</div>
+								
 						</div>
+					
 						<div class="cf-title">Thông tin vận chuyển</div>
 						<div class="row shipping-btns">
 							<div class="col-6">
-								<h4>Tiêu chuẩn</h4>
+								<h4>Giao hàng Tiêu chuẩn</h4>
 							</div>
 							<div class="col-6">
 								<div class="cf-radio-btns">
@@ -69,46 +73,32 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-6">
-								<h4>Giao hàng nhanh </h4>
 							</div>
-							<div class="col-6">
-								<div class="cf-radio-btns">
-									<div class="cfr-item">
-										<input type="radio" name="shipping" id="ship-2">
-										<label for="ship-2">23.000VND</label>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="cf-title">Thanh toán</div>
-						<ul class="payment-list">
-							<li>Paypal<a href="#"><img src="<c:url value="/assets/img/paypal.png"/>" alt=""></a></li>
-							<li>Credit / Debit card<a href="#"><img src="<c:url value="/assets/img/mastercart.png"/>" alt=""></a></li>
-							<li>Thanh toán khi nhận hàng</li>
-						</ul>
-						<button class="site-btn submit-order-btn">Xác nhận đơn hàng</button>
+							
+					
+						<button class="site-btn submit-order-btn" type="submit">Xác nhận đơn hàng</button>
 					</form>
 				</div>
 				<div class="col-lg-4 order-1 order-lg-2">
 					<div class="checkout-cart">
 						<h3>Giỏ hàng</h3>
 						<ul class="product-list">
+							<c:forEach var="cart" items="${listCart}">
 							<li>
-								<div class="pl-thumb"><img src="<c:url value="/assets/img/cart/1.jpg"/>" alt=""></div>
-								<h6>Animal Print Dress</h6>
-								<p>$45.90</p>
+								
+								<h6>${cart.product.productName}   x ${cart.orderQty}</h6>
+								<p>${cart.getSellPrice()} VNĐ</p>
+								<h6>-----</h6>
 							</li>
-							<li>
-								<div class="pl-thumb"><img src="<c:url value="/assets/img/cart/2.jpg"/>" alt=""></div>
-								<h6>Animal Print Dress</h6>
-								<p>$45.90</p>
-							</li>
+						
+						</c:forEach>
 						</ul>
-						<ul class="price-list">
-							<li>Total<span>$99.90</span></li>
-							<li>Shipping<span>free</span></li>
-							<li class="total">Total<span>$99.90</span></li>
+						
+						
+						<ul >
+						
+							<h6 >Tổng tiền: </h6>
+							<p ><span> ${total} VNĐ</span> <p>
 						</ul>
 					</div>
 				</div>

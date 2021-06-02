@@ -39,8 +39,8 @@
 				<div class="form-row-last">
 					<input type="submit" name="login" class="Login" value="Đăng Nhập">
 					
-					<div> <a style="color: rgb(255, 255, 255);" href=""><span>Quên Mật Khẩu?</span></a></div>
-					<div> <a href="register.html"><input type="button" name="login" class="register" value="Đăng Ký"></a></div>
+					
+					<div> <a href="/register"><input type="button" name="login" class="register" value="Đăng Ký"></a></div>
 				</div>
 			</form>
 		</div>

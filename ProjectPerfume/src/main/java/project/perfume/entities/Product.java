@@ -13,6 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.search.annotations.Analyze;
 import org.hibernate.search.annotations.Field;
@@ -38,7 +39,7 @@ public class Product {
 	//private String brand;
 	@Column(columnDefinition = "nvarchar(max)")
 	private String manufacturingDate;
-	private Date expiryDate; //NgÃ y háº¿t háº¡n
+	private Date expiryDate; //NgÃ y háº¿t háº¡n //Bỏ
 	private String madeIn;
 	private Double buyPrice; //GiÃ¡ mua vÃ o (giÃ¡ nháº­p)
 	private Double sellPrice; //GiÃ¡ bÃ¡n ra (cho khÃ¡ch hÃ ng)
@@ -48,16 +49,21 @@ public class Product {
 	private String image;
 	private Boolean sex; // 0: Male 1: Female
 	@ManyToOne
-	@JoinColumn(name = "listProducts", nullable = true)
+	@JoinColumn(name = "categoryId", nullable = true)
 	private Category category;
 	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
 	private Set<SalesOrderDetail> saleOrderDetail;
+	@OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+	private Set<Cart> cart;
+	
 	
 	@ManyToOne
-	@JoinColumn(name = "listProductOfSupplier", nullable = false)
+	@JoinColumn(name = "supplierId",nullable = false)
 	private Supplier supplier;
+	
 	@ManyToOne
-	@JoinColumn(name = "listProductOfBrand", nullable = false)
+	@JoinColumn(name = "BrandId", nullable = false)
+	@NotNull
 //	@Field(index=Index.YES, analyze=Analyze.YES, store=Store.NO)
 	private Brand brand;
 	
@@ -170,7 +176,6 @@ public class Product {
 	}
 	
 	public Product() {
-		super();
 	}
 	public Boolean getSex() {
 		return sex;

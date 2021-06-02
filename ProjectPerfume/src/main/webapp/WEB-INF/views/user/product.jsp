@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+    
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+
 	<div class="page-top-info">
 		<div class="container">
 			<h4>SẢN PHẨM</h4>
@@ -16,7 +18,50 @@
 		</div>
 	</div>
 	<!-- Page info end -->
-
+	 <div class="modal show" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Thêm thành công</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+       
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  <div class="modal show" id="myModalFail">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Thêm thất bại</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+       <div class="modal-body">
+          Sản phẩm đã có trong giỏ hàng của bạn
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
 
 	<!-- product section -->
 	<section class="product-section">
@@ -32,7 +77,7 @@
 					<div class="product-thumbs" tabindex="1" style="overflow: hidden; outline: none;">
 						<div class="product-thumbs-track">
 							<div class="pt active" data-imgbigurl="img/single-product/1.jpg"><img src="img/single-product/thumb-1.jpg" alt=""></div>
-							<div class="pt" data-imgbigurl="src="<c:url value="/assets/img/single-product/2.jpg"/>""><img src="img/single-product/thumb-2.jpg" alt=""></div>
+							<div class="pt" data-imgbigurl="src="<c:url value="/assets/img/single-product/2.jpg"/> ><img src="img/single-product/thumb-2.jpg" alt=""></div>
 							<div class="pt" data-imgbigurl="img/single-product/3.jpg"><img src="src="<c:url value="/assets/img/single-product/3.jpg"/>"" alt=""></div>
 							<div class="pt" data-imgbigurl="img/single-product/4.jpg"><img src="src="<c:url value="/assets/img/single-product/4.jpg"/>"" alt=""></div>
 						</div>
@@ -40,50 +85,33 @@
 				</div>
 				<div class="col-lg-6 product-details">
 					<h2 class="p-title">${product.productName}</h2>
-					<h3 class="p-price">${product.sellPrice}</h3>
-					<h4 class="p-stock">Trạng thái: <span>Còn hàng</span></h4>
-					<div class="p-rating">
-						<i class="fa fa-star-o"></i>
-						<i class="fa fa-star-o"></i>
-						<i class="fa fa-star-o"></i>
-						<i class="fa fa-star-o"></i>
-						<i class="fa fa-star-o fa-fade"></i>
-					</div>
+					<h3 class="p-price">${product.sellPrice} VNĐ</h3>
+					<h4 class="p-stock">Số lượng: <span>${product.quantity}</span></h4>
+					
 					<div class="p-review">
-						<a href="">3 nhận xét</a>|<a href="">Nhận xét ngay</a>
+						
 					</div>
 					<div class="fw-size-choose">
-						<p>Size</p>
-						<div class="sc-item">
-							<input type="radio" name="sc" id="xs-size">
-							<label for="xs-size">32</label>
-						</div>
-						<div class="sc-item">
-							<input type="radio" name="sc" id="s-size">
-							<label for="s-size">34</label>
-						</div>
-						<div class="sc-item">
-							<input type="radio" name="sc" id="m-size" checked="">
-							<label for="m-size">36</label>
-						</div>
-						<div class="sc-item">
-							<input type="radio" name="sc" id="l-size">
-							<label for="l-size">38</label>
-						</div>
-						<div class="sc-item disable">
-							<input type="radio" name="sc" id="xl-size" disabled>
-							<label for="xl-size">40</label>
-						</div>
-						<div class="sc-item">
-							<input type="radio" name="sc" id="xxl-size">
-							<label for="xxl-size">42</label>
-						</div>
+						<p>Size:</p>
+							<div class="sc-item">
+								<input type="radio" name="sc" id="m-size" checked=""> <label
+									for="m-size">300</label>   ml
+							</div>
+						
+				
 					</div>
+					<form name="${pageContext.request.contextPath}/product/addtocart" action="${pageContext.request.contextPath}/product/addtocart" method="POST" >
 					<div class="quantity">
 						<p>Số lượng</p>
-                        <div class="pro-qty"><input type="text" value="1"></div>
+                        <div class="pro-qty"><input type="text" value="1" name= "qtt"></div>
                     </div>
-					<a href="#" class="site-btn">MUA NGAY</a>
+                    <input type="hidden" value="${product.id}" name = "id">
+                    
+                   
+					<a ><button class="site-btn " type = "submit">THÊM VÀO GIỎ HÀNG</button></a>
+					<br><br>
+					<a  class="site-btn" href="${pageContext.request.contextPath}/checkoutfromcart">THANH TOÁN</a>
+					</form>
 					<div id="accordion" class="accordion-area">
 						<div class="panel">
 							<div class="panel-header" id="headingOne">
@@ -211,5 +239,23 @@
 				</div>
 			</div>
 		</div>
+	
+ 
 	</section>
+	<script type="text/javascript">
+	$(window).on('load',function(){
+    var delayMs = 0; // delay in milliseconds
+    var modalvalue = ${status};
+    if (modalvalue == 1)
+    setTimeout(function(){
+        $('#myModal').modal('show');
+    }, delayMs);
+   
+	if (modalvalue == -1)
+	    setTimeout(function(){
+	        $('#myModalFail').modal('show');
+	    }, delayMs);
+		   
+	}); 
+	</script>
 </body>

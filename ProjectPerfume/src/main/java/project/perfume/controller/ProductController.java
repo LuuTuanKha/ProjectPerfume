@@ -32,7 +32,7 @@ public class ProductController {
 	// PRODUCT CONTROLLER
 //	@RequestMapping(value = {"/category"}, method = RequestMethod.GET)
 //	   public String RegisterPage() {
-////		   System.out.println(query);
+//	   System.out.println(query);
 //	      return  "user/category";
 //	   }
 	@RequestMapping(value = "/category", method = RequestMethod.GET)
@@ -57,8 +57,10 @@ public class ProductController {
 	}
 
 	@GetMapping("/product/view")
-	public String addBook(Model model, @RequestParam("id") int id) {
+	public String addBook(Model model, @RequestParam("id") int id, @RequestParam("status") int status) {
 		model.addAttribute("product", productService.findById(id));
+	
+		model.addAttribute("status", status);
 		return "user/product";
 	}
 

@@ -1,9 +1,12 @@
 package project.perfume.dto;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
+
+import project.perfume.entities.Cart;
 
 public class MyUser extends User {
 
@@ -15,6 +18,8 @@ public class MyUser extends User {
 	}
 	
 	private String fullName;
+	private int sizeCart;
+	private List<Cart> myCart;
 	
 	public String getFullName() {
 		return fullName;
@@ -23,4 +28,22 @@ public class MyUser extends User {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
+
+	public int getSizeCart() {
+		return sizeCart;
+	}
+
+	public void setSizeCart(int sizeCart) {
+		this.sizeCart = sizeCart;
+	}
+
+	public List<Cart> getMyCart() {
+		return myCart;
+	}
+
+	public void setMyCart(List<Cart> myCart) {
+		this.myCart = myCart;
+	}
+
+
 }

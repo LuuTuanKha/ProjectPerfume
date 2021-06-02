@@ -9,7 +9,10 @@
             
     <http auto-config="false" use-expressions="true" disable-url-rewriting="true">
     
-    	<intercept-url pattern="/admin/**" access="hasAnyRole('ADMIN')" />   	
+    	<intercept-url pattern="/admin/**" access="hasAnyRole('ADMIN')" /> 
+    	<intercept-url pattern="/product/addtocart" access="hasAnyRole('USER')" />  
+    	<intercept-url pattern="/cart/**" access="hasAnyRole('USER')" />   	
+    	<intercept-url pattern="/checkout" access="hasAnyRole('USER')" />   	
     	    	
     	<access-denied-handler error-page="/accessDenied" />
         <form-login  login-page="/login"

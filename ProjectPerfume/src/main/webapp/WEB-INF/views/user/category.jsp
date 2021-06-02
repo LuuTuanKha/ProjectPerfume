@@ -31,28 +31,21 @@
 			<div class="row">
 				<div class="col-lg-3 order-2 order-lg-1">
 					<div class="filter-widget">
-						<h2 class="fw-title">Categories</h2>
+						<h2 class="fw-title">Bộ sưu tập</h2>
 						<ul class="category-menu">
-							<li><a href="#">Woman wear</a>
+							<!-- <li><a href="#">Woman wear</a>
 								<ul class="sub-menu">
 									<li><a href="#">Midi Dresses <span>(2)</span></a></li>
 									<li><a href="#">Maxi Dresses<span>(56)</span></a></li>
 									<li><a href="#">Prom Dresses<span>(36)</span></a></li>
 									<li><a href="#">Little Black Dresses <span>(27)</span></a></li>
 									<li><a href="#">Mini Dresses<span>(19)</span></a></li>
-								</ul></li>
-							<li><a href="#">Man Wear</a>
-								<ul class="sub-menu">
-									<li><a href="#">Midi Dresses <span>(2)</span></a></li>
-									<li><a href="#">Maxi Dresses<span>(56)</span></a></li>
-									<li><a href="#">Prom Dresses<span>(36)</span></a></li>
-								</ul></li>
-							<li><a href="#">Children</a></li>
-							<li><a href="#">Bags & Purses</a></li>
-							<li><a href="#">Eyewear</a></li>
-							<li><a href="#">Footwear</a></li>
+								</ul></li> -->						
+							<li><a href="#">Cao cấp</a></li>
+							<li><a href="#">Thấp cấp</a></li>
 						</ul>
 					</div>
+					<!-- 
 					<div class="filter-widget mb-0">
 						<h2 class="fw-title">refine by</h2>
 						<div class="price-range-wrap">
@@ -76,43 +69,41 @@
 							</div>
 						</div>
 					</div>
+					 -->
 					<div class="filter-widget mb-0">
 						<h2 class="fw-title">Size</h2>
 						<div class="fw-size-choose">
 							<div class="sc-item">
 								<input type="radio" name="sc" id="xs-size"> <label
-									for="xs-size">XS</label>
+									for="xs-size">50ml</label>
 							</div>
 							<div class="sc-item">
 								<input type="radio" name="sc" id="s-size"> <label
-									for="s-size">S</label>
+									for="s-size">100ml</label>
+							</div>
+							<div class="sc-item">
+								<input type="radio" name="sc" id="s-size"> <label
+									for="s-size">150ml</label>
 							</div>
 							<div class="sc-item">
 								<input type="radio" name="sc" id="m-size" checked=""> <label
-									for="m-size">M</label>
+									for="m-size">250ml</label>
 							</div>
 							<div class="sc-item">
 								<input type="radio" name="sc" id="l-size"> <label
-									for="l-size">L</label>
+									for="l-size">500ml</label>
 							</div>
-							<div class="sc-item">
-								<input type="radio" name="sc" id="xl-size"> <label
-									for="xl-size">XL</label>
-							</div>
-							<div class="sc-item">
-								<input type="radio" name="sc" id="xxl-size"> <label
-									for="xxl-size">XXL</label>
-							</div>
+
 						</div>
 					</div>
 					<div class="filter-widget">
-						<h2 class="fw-title">Brand</h2>
+						<h2 class="fw-title">Thương hiệu</h2>
 						<ul class="category-menu">
-							<li><a href="#">Abercrombie & Fitch <span>(2)</span></a></li>
-							<li><a href="#">Asos<span>(56)</span></a></li>
-							<li><a href="#">Bershka<span>(36)</span></a></li>
-							<li><a href="#">Missguided<span>(27)</span></a></li>
-							<li><a href="#">Zara<span>(19)</span></a></li>
+							<li><a href="#">Yumeisakura <span>(2)</span></a></li>
+							<li><a href="#">Parour<span>(56)</span></a></li>
+							<li><a href="#">Carolina Herrera<span>(36)</span></a></li>
+							<li><a href="#">Minus 417<span>(27)</span></a></li>
+							<li><a href="#">Charm<span>(19)</span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -124,13 +115,12 @@
 								<div class="product-item">
 									<div class="pi-pic">
 										<div class="tag-sale">ON SALE</div>
-										<a href="${pageContext.request.contextPath}/product/view?id=${item.id}">
-										<img src="<c:url value="/assets/img/product/6.jpg"/>" alt="">
+										<a href="${pageContext.request.contextPath}/product/view?id=${item.id}&status=0">
+										<img src="<c:url value="${item.image} "/>" alt="">
 										</a>
 										<div class="pi-links">
-											<a href="#" class="add-card"><i class="flaticon-bag"></i><span>
-													CHỌN MUA</span></a> <a href="#" class="wishlist-btn"><i
-												class="flaticon-heart"></i></a>
+											<a href="${pageContext.request.contextPath}/product/view?id=${item.id}&status=0"  class="add-card"><i class="flaticon-bag"></i><span>
+													 XEM CHI TIẾT</span></a> 
 										</div>
 									</div>
 									<div class="pi-text">

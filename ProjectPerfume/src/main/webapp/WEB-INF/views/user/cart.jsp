@@ -1,6 +1,8 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
      <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
+     
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -27,6 +29,7 @@
 					<div class="cart-table">
 						<h3>Giỏ hàng</h3>
 						<div class="cart-table-warp">
+				
 							<table>
 							<thead>
 								<tr>
@@ -37,65 +40,39 @@
 								</tr>
 							</thead>
 							<tbody>
+							<c:forEach var="cart" items="${listCart}">
 								<tr>
-									<td class="product-col">
-										<img src="<c:url value="/assets/img/cart/1.jpg"/>" alt="">
+									<td class="product-col">	
 										<div class="pc-title">
-											<h4>ATD STRIPPED</h4>
-											<p>150.000VND</p>
+											<h4>${cart.product.productName}</h4>
+											<p>${cart.product.sellPrice} VNĐ</p>
 										</div>
 									</td>
 									<td class="quy-col">
-										<div class="quantity">
-					                        <div class="pro-qty">
-												<input type="text" value="1">
-											</div>
-                    					</div>
-									</td>
-									<td class="size-col"><h4>Size M</h4></td>
-									<td class="total-col"><h4>150.000VND</h4></td>
-								</tr>
-								<tr>
-									<td class="product-col">
-										<img src="<c:url value="/assets/img/cart/2.jpg"/>" alt="">
-										<div class="pc-title">
-											<h4>COLOR DRESS </h4>
-											<p>220.000VND</p>
+										<div  style=" border: 1px solid black; width: 83px; height: 35px; margin-left: 2px; border-radius: 15px; border: none;background-color: white;">
+										<div style="text-align: center; padding-top: 7px;">
+											<a href= "list?id=${cart.product.productId}&qtt=${cart.orderQty-1}"><input type="image" src="<c:url value="/assets/img/minus.png"/>" alt="tru" height="9px" width="9px" /></a>
+
+											<input type="text" name="" value="${cart.orderQty}" id="soluong" style="border: none; width: 20px; height: 15px; margin-bottom: -6px; margin-left: 6px; margin-right: 6px, background-color:white ;" disabled/>
+
+											<input type="image" src="<c:url value="/assets/img/add.png"/>" alt="cong" height="9px" width="9px"/></a>
+
 										</div>
+									</div>	
 									</td>
-									<td class="quy-col">
-										<div class="quantity">
-					                        <div class="pro-qty">
-												<input type="text" value="1">
-											</div>
-                    					</div>
+									<td class="size-col"><h4>${cart.product.size} ml</h4></td>
+									<td class="total-col" ><h4 >${cart.getSellPrice()}</h4>VNĐ
 									</td>
-									<td class="size-col"><h4>Size M</h4></td>
-									<td class="total-col"><h4>220.000VND</h4></td>
+									
 								</tr>
-								<tr>
-									<td class="product-col">
-										<img src="<c:url value="/assets/img/cart/3.jpg"/>" alt="">
-										<div class="pc-title">
-											<h4>FARAL LONG LACE</h4>
-											<p>250.000VND</p>
-										</div>
-									</td>
-									<td class="quy-col">
-										<div class="quantity">
-					                        <div class="pro-qty">
-												<input type="text" value="1">
-											</div>
-                    					</div>
-									</td>
-									<td class="size-col"><h4>Size S</h4></td>
-									<td class="total-col"><h4>250.000VND</h4></td>
-								</tr>
+								</c:forEach>
+								
 							</tbody>
 						</table>
+						
 						</div>
 						<div class="total-cost">
-							<h6>Tổng cộng<span>620.000VND</span></h6>
+							<h6>Tổng cộng: ${total} VNĐ<span></span></h6>
 						</div>
 					</div>
 				</div>
@@ -104,7 +81,7 @@
 						<input type="text" placeholder="Mã giảm giá">
 						<button>Xác nhận</button>
 					</form>
-					<a href="" class="site-btn">Xác nhận giỏ hàng</a>
+					<a href="${pageContext.request.contextPath}/checkoutfromcart" class="site-btn">Tiến hành đặt hàng</a>
 					<a href="" class="site-btn sb-dark">Tiếp tục mua hàng</a>
 				</div>
 			</div>

@@ -12,7 +12,9 @@
 </head>
 <body>
 	<div class="container">
+	<br><br>
 		<h2>Quản lý sản phẩm</h2>
+		<br><br><a href="${pageContext.request.contextPath}/admin/product/add"><button class="btn btn-light">Thêm sản phẩm</button></a>
 
 
 
@@ -36,11 +38,11 @@
 						<td>${b.selledQTT}</td>
 
 						<td><a class="btn btn-light"
-							href="product/update?id=${b.productId}" data-toggle="modal"
+							href="product/productId=${b.productId}" data-toggle="modal"
 							data-target="#myModalImage${b.productId}">Xem</a></td>
 
 						<td><a class="btn btn-light"
-							href="product/update?id=${b.productId}">Cập nhật</a> <a
+							href="update?productId=${b.productId}">Cập nhật</a> <a
 							class="btn btn-danger" href="product/delete?id=${b.productId}" data-toggle="modal"
 							data-target="#myModalDelete${b.productId}">Xoá</a>
 						</td>
@@ -55,31 +57,24 @@
 								<!-- Modal Header -->
 								<div class="modal-header">
 									<h4 class="modal-title">${b.productName}</h4>
+									
+								
 									<button type="button" class="close" data-dismiss="modal">&times;</button>
 								</div>
 
 								<!-- Modal body -->
 								<div class="modal-body">
 									<img
-										src="https://firebasestorage.googleapis.com/v0/b/projectperfume-faed4.appspot.com/o/images%2F11.jpg?alt=media&token=76e10fd1-e661-494a-a046-40afd0f16fa5"
+										src="${b.image}"
 										class="img-thumbnail" alt="Responsive image"
 										style="height: 400px">
-									<div>
-										<div>
-											<label> | Sửa ảnh : </label>
-										</div>
-										<input type="file" id="image" accept="image/*"
-											class="btn btn-light"><br> <br>
-
-									</div>
-								</div>
+																	</div>
 
 
 								<!-- Modal footer -->
 								<div class="modal-footer">
 
-									<button type="button" class="btn btn-light" onclick="upload()">Cập
-										nhật</button>
+									
 									<button type="button" class="btn btn-danger"
 										data-dismiss="modal">Đóng</button>
 								</div>
@@ -108,8 +103,8 @@
 
 								<!-- Modal footer -->
 								<div class="modal-footer">
-								<button type="button" class="btn btn-danger"
-										data-dismiss="modal">Xác nhận</button>
+								<a href="delete?id=${b.productId}"><button type="button" class="btn btn-danger"
+										 >Xác nhận</button></a>
 									<button type="button" class="btn btn-danger"
 										data-dismiss="modal">Đóng</button>
 								</div>

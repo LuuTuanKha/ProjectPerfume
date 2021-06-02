@@ -307,9 +307,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="text-center pt-5">
-				<button class="site-btn sb-line sb-dark">XEM THÊM</button>
-			</div>
+			
 		</div>
 	</section>
 	<!-- Product filter section end -->

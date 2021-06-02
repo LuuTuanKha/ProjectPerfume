@@ -17,13 +17,16 @@
 			<property name="hibernate.dialect"
 				value="org.hibernate.dialect.SQLServerDialect" />
 			<property name="hibernate.show_sql" value="true" />
-			<property name="hibernate.hbm2ddl.auto" value="none" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
 			<property name="hibernate.enable_lazy_load_no_trans"
 				value="true" />
-				<property name="hibernate.enable_lazy_load_no_trans"
+			<property name="hibernate.enable_lazy_load_no_trans"
 				value="true" />
-				 <property name="hibernate.search.default.directory_provider" value="filesystem"/>
-                <property name="hibernate.search.default.indexBase" value="./lucene/indexes"/>
+			<property name="hibernate.search.default.directory_provider"
+				value="filesystem" />
+			<property name="hibernate.search.default.indexBase"
+				value="./lucene/indexes" />
+			
 		</properties>
 	</persistence-unit>
 </persistence>

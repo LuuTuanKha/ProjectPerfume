@@ -56,11 +56,11 @@
 					
 						<ul class="main-menu">
 					<li><a href="/ProjectPerfume/admin/index">Trang chủ</a></li>
-                    <li><a href="#">   Quản lý sản phẩm</a>
+                    <li><a href="${pageContext.request.contextPath}/admin/product/list">   Quản lý sản phẩm</a>
 						<ul class="sub-menu " >
-							<li><a href="../category.html">Xem danh sách</a></li>
+							<li><a href="${pageContext.request.contextPath}/admin/product/list">Xem danh sách</a></li>
 							
-							<li><a href="../cart.html">Thêm</a></li>
+							<li><a href="${pageContext.request.contextPath}/admin/product/add">Thêm</a></li>
 							<li><a href="../checkout.html">Sửa</a></li>
 							<li><a href="../contact_0304.html">...</a></li>
 						</ul>
@@ -75,7 +75,7 @@
 							<li><a href="../contact_0304.html">...</a></li>
 						</ul>
                     </li>
-					<li><a href="../category.html">Backup / Restore database</a>
+					<li><a href="/">Quản lý đơn hàng</a>
 						<ul class="sub-menu " >
 							<li><a href="../category.html">Xem danh sách</a></li>
 							<li><a href="../cart.html">Thêm</a></li>

@@ -18,7 +18,6 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "SalesOrderDetails")
-
 @EqualsAndHashCode(of = "pk")
 //@IdClass(SalesOrderDetail_PK.class)
 public class SalesOrderDetail {
@@ -34,7 +33,7 @@ public class SalesOrderDetail {
 	
 	
 	private Integer orderQty;
-	
+	private Double sellPrice;
 	@ManyToOne
 	@JoinColumn(name = "saleOrderHeaderID")
 	@MapsId("saleOrderHeaderID")
@@ -44,5 +43,61 @@ public class SalesOrderDetail {
 	@JoinColumn(name = "productId")
 	@MapsId("productId")
 	private Product product;
+
+	public SalesOrderDetail(SalesOrderDetail_PK pk, Integer orderQty, Double sellPrice,
+			SalesOrderHeader saleOrderHeader, Product product) {
+		super();
+		this.pk = pk;
+		this.orderQty = orderQty;
+		this.sellPrice = sellPrice;
+		this.saleOrderHeader = saleOrderHeader;
+		this.product = product;
+	}
+
+	public SalesOrderDetail() {
+		super();
+	}
+
+	public SalesOrderDetail_PK getPk() {
+		return pk;
+	}
+
+	public void setPk(SalesOrderDetail_PK pk) {
+		this.pk = pk;
+	}
+
+	public Integer getOrderQty() {
+		return orderQty;
+	}
+
+	public void setOrderQty(Integer orderQty) {
+		this.orderQty = orderQty;
+	}
+
+	public Double getSellPrice() {
+		return sellPrice;
+	}
+
+	public void setSellPrice(Double sellPrice) {
+		this.sellPrice = sellPrice;
+	}
+
+	public SalesOrderHeader getSaleOrderHeader() {
+		return saleOrderHeader;
+	}
+
+	public void setSaleOrderHeader(SalesOrderHeader saleOrderHeader) {
+		this.saleOrderHeader = saleOrderHeader;
+	}
+
+	public Product getProduct() {
+		return product;
+	}
+
+	public void setProduct(Product product) {
+		this.product = product;
+	}
+	
+	
 
 }

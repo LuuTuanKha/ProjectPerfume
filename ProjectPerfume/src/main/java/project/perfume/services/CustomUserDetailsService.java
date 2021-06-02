@@ -15,6 +15,7 @@ import project.perfume.constant.SystemConst;
 import project.perfume.dto.MyUser;
 import project.perfume.entities.Role;
 import project.perfume.entities.User;
+import project.perfume.repository.CartRepository;
 import project.perfume.repository.UserRepository;
 
 
@@ -23,6 +24,8 @@ public class CustomUserDetailsService implements UserDetailsService {
 	
 	@Autowired
 	private UserRepository userRepository;
+	@Autowired 
+	private CartRepository cartRepository;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
@@ -44,6 +47,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 		MyUser myUser = new MyUser(userEntity.getUserName(), userEntity.getPassword(), 
 							true, true, true, true, authorities);
 		myUser.setFullName(userEntity.getFullName());
+		myUser.setMyCart(cartRepository.findByPkUsername(myUser.getUsername()));
 		System.out.println("UerName input"+ myUser.getUsername()+ "password input "+myUser.getPassword());
 		return myUser;
 	}

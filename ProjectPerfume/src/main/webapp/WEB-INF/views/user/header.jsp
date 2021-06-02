@@ -1,5 +1,6 @@
 <%@ page import="project.perfume.until.SecurityUtils" %>
 
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
  <%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix = "c" %>
@@ -15,13 +16,32 @@
 	<meta name="description" content=" Divisima | eCommerce Template">
 	<meta name="keywords" content="divisima, eCommerce, creative, html">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	
+		<style>
+.drop {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 133px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 13px 16px;
+  padding-left:20px;
+  z-index: 1;
+}
+.drop:hover .dropdown-content {
+  display: block;
+}
+</style>
 </head>
 <body>
     <div>
 	<header class="header-section">
 		<div class="header-top">
-			<div class="container">
+			<div class="container-fluid">
 				<div class="row">
 					<div class="col-lg-2 text-center text-lg-left" style="margin-top: 5px;">
 						<!-- logo -->
@@ -46,15 +66,35 @@
 						<security:authorize access = "isAuthenticated()">
 					<div class="up-item">
 								<i class="flaticon-profile"></i>
-					<a href="/ProjectPerfume/profile" class="text-primary"></a> PRF<b> <%=SecurityUtils.getPrincipal().getFullName()%><a href="/ProjectPerfume/logout" style="color:#f51167">Đăng xuất</a></b>
+					<a href="/ProjectPerfume/profile" class="text-primary"></a> 
+					
+					<!-- <a href="/ProjectPerfume/logout" style="color:#f51167">Đăng xuất</a></b> -->
+								<div class="drop">
+										<span style="color:#f51167" ><b> <%=SecurityUtils.getPrincipal().getFullName()%></span>
+										<div class="dropdown-content">
+										<div>  <a href="#">Hồ sơ cá nhân</a> </div>
+										<div>  <a href="${pageContext.request.contextPath}/myorder/list">Đơn hàng </a> </div>
+										  
+											  <a href="${pageContext.request.contextPath}/logout" style="color:#f51167">Đăng xuất</a><br>
+											
+										</div>
+								</div>
 					</div>
 				</security:authorize>
 							<div class="up-item">
+							<security:authorize access = "isAnonymous()">
 								<div class="shopping-card">
 									<i class="flaticon-bag"></i>
 									<span>0</span>
 								</div>
-								<a href="/ProjectPerfume/checkout">Giỏ hàng</a>
+							</security:authorize>
+				  			<security:authorize access = "isAuthenticated()">
+								<div class="shopping-card">
+									<i class="flaticon-bag"></i>
+									<span><%=SecurityUtils.getPrincipal().getMyCart().size()%></span>
+								</div>
+							</security:authorize>
+								<a href="${pageContext.request.contextPath}/cart/list?id=0&qtt=0">Giỏ hàng</a>
 							</div>
 						</div>
 					</div>
@@ -87,14 +127,7 @@
 		</nav>	
 	</header>
     </div>
-  <!-- <script src="js/jquery-3.2.1.min.js"></script> -->
-	<!-- <script src="js/bootstrap.min.js"></script> -->
-	<!-- <script src="js/jquery.slicknav.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/jquery.nicescroll.min.js"></script>
-	<script src="js/jquery.zoom.min.js"></script>
-	<script src="js/jquery-ui.min.js"></script> -->
-	<script src="../assets/js/main.js"></script>
+  
 
 </body>
 </html>

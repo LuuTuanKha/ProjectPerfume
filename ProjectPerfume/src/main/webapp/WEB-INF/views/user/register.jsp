@@ -17,7 +17,7 @@
 				<h2 style="color: white">Đăng Ký Tài Khoản</h2>
 				<div class="form-row-total">
 					<div class="form-row">
-						<input type="text" name="full-name" id="full-name" class="input-text" placeholder="Tên Người Dùng" required>
+						<input type="text" name="full-name" id="full-name" class="input-text" placeholder="Họ và tên" required>
 					</div>
 					<div class="form-row">
 						<input type="text" name="your-email" id="your-email" class="input-text" placeholder="Email" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}">
@@ -25,7 +25,7 @@
 				</div>
 				<div class="form-row-total">
 					<div class="form-row">
-						<input type="text" name="User-name" id="User-name" class="input-text" placeholder="Tài Khoản" required>
+						<input type="text" name="User-name" id="User-name" class="input-text" placeholder="Tên đăng nhập" required>
 					</div>
 					<div class="form-row">
 						<input type="text" name="phone" id="phone" class="input-text" placeholder="Số điện thoại" required>
@@ -37,6 +37,14 @@
 					</div>
 					<div class="form-row">
 						<input type="password" name="comfirm-password" id="comfirm-password" class="input-text" placeholder="Nhập Mại Mật Khẩu" required>
+					</div>
+				</div>
+				<div class="form-row-total">
+					<div class="form-row">
+						<input type="Địa chỉ" name="password" id="password" class="input-text" placeholder="Mật Khẩu" required>
+					</div>
+					<div class="form-row">
+						<input type="năm sinh" name="comfirm-password" id="comfirm-password" class="input-text" placeholder="Nhập Mại Mật Khẩu" required>
 					</div>
 				</div>
 				

@@ -24,6 +24,14 @@ public class SalesOrderDetail_PK implements Serializable {
 		// TODO Auto-generated method stub
 		return super.equals(obj);
 	}
+	public SalesOrderDetail_PK(Integer saleOrderHeaderID, Integer productId) {
+		super();
+		this.saleOrderHeaderID = saleOrderHeaderID;
+		this.productId = productId;
+	}
+	public SalesOrderDetail_PK() {
+		super();
+	}
 	
 
 }

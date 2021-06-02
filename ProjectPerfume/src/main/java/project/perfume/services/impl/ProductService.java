@@ -29,14 +29,6 @@ public class ProductService implements IProductService {
 		return (List<Product>) repo.findAll();
 	}
 	
-	public Product get(Integer id) {
-		return repo.findOne(id);
-	}
-	
-	public void delete(Integer id) {
-		repo.delete(id);
-	}
-	
 	public List<Product> search(String keyword) {
 		return null;
 	}

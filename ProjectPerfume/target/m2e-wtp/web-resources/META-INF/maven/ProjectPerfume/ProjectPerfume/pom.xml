@@ -93,11 +93,12 @@
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-search-orm -->
 		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-search-orm -->
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-search-orm</artifactId>
-			<version>4.2.0.Final</version>
-		</dependency>
+<dependency>
+    <groupId>org.hibernate</groupId>
+    <artifactId>hibernate-search-orm</artifactId>
+    <version>4.5.3.Final</version>
+</dependency>
+		
 
 
 
@@ -224,6 +225,12 @@
 			<version>1.18.20</version>
 
 		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>6.1.5.Final</version>
+		</dependency>
+
 
 
 	</dependencies>

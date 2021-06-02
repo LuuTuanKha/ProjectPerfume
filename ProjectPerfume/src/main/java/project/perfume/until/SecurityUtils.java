@@ -11,10 +11,13 @@ import project.perfume.dto.MyUser;
 
 
 public class SecurityUtils {
+
+	
 	
 	public static MyUser getPrincipal() {
 		
 			MyUser myUser = (MyUser) (SecurityContextHolder.getContext()).getAuthentication().getPrincipal();
+		
 	        return myUser;
 			
 		
@@ -30,4 +33,8 @@ public class SecurityUtils {
         }
 		return results;
 	}
+	
+	
+		
+	
 }
