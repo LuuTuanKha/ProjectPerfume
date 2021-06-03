@@ -28,7 +28,7 @@ public class User  {
 	@Column(name = "status", nullable = false)
 	private Integer status;
 	private String email;
-	
+	private String phone;
 	@ManyToMany(fetch = FetchType.LAZY)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "userid"), inverseJoinColumns = @JoinColumn(name = "roleid"))
 	private List<Role> roles = new ArrayList<>();
@@ -43,6 +43,14 @@ public class User  {
 	@OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
 	Set<Cart> cart;
 	
+	
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 
 	public String getUserName() {
 		return userName;
